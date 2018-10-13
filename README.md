@@ -1,5 +1,5 @@
-# __matrix-operations__
-### Functions
+# __Matrix operations in java__  
+### Functions  
 Addition.  
 Substraction.  
 Multiplication.  
