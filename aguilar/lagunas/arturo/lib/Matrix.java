@@ -32,7 +32,26 @@ public class Matrix{
 		return det;
 	}
 	public double[] solveSystem(double[][] ecuations){
-		double[] unknowns = {};
+		int size = ecuations.length;
+		double[][] dXmatrix = new double[size][size];
+		double[] unknowns = new double[size];
+		double dX = 0;
+		double dM = 0;
+		// Calcula dM
+		dM = getDeterminat(ecuations);
+		if (dM == 0) return unknowns;
+		for (int i = 0; i < size; i++){ // dXmatrix
+			for (int j = 0; j < size; j++){ // Rows
+				for (int k = 0; k < size; k++) { // Cols
+					if (i == k)
+						dXmatrix[j][k] = ecuations[j][size];
+					else
+						dXmatrix[j][k] = ecuations[j][k];
+				}
+			}
+			dX = getDeterminat(dXmatrix);
+			unknowns[i] = dX/dM;
+		}
 		return unknowns;
 	}
 	// Funciones de entrada
@@ -88,7 +107,7 @@ public class Matrix{
 			}
 		}
 	}
-	public void printA(double[] ecuations){
-		System.out.println("R\n.\n.\n.\nn");
+	public void printA(double[] list){
+		for (int i = 0; i < list.length; i++) System.out.println(list[i]);
 	}
 }

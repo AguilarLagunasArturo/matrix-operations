@@ -88,6 +88,10 @@ class Main{
 		mtrx.printM(ecuations);
 		// Imprime incognitas
 		System.out.println("\n== Unknown values ==\n");
-		mtrx.printA(mtrx.solveSystem(ecuations));
+		if (mtrx.getDeterminat(ecuations) == 0) {
+			System.out.println("This system has infinitely many solutions.");
+		}else {
+			mtrx.printA(mtrx.solveSystem(ecuations));
+		}
 	}
 }
