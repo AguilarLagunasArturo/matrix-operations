@@ -1,32 +1,93 @@
 import lib.Std;
 import lib.Matrix;
+import java.util.Scanner;
 class Main{
+	// Variables globales
 	private static Std io = new Std();
 	private static Matrix mtrx = new Matrix();
+	private static Scanner sc = new Scanner(System.in);
+
 	public static void main(String[] args){
-		io.println("== Determinat test ==\n");
-		int size = io.getInt("Matrix size: ", "Invalid, try again: ", 2, Integer.MAX_VALUE);
-		double[][] matrix = new double[size][size];
-		for(int i = 0; i < size; i++){
-			for(int j = 0; j < size; j++){
-				matrix[i][j] = io.getDouble(
-					"Value at [" + i + "][" + j + "]: ","Invalid, try again: ",
-					-Double.MAX_VALUE, Double.MAX_VALUE
-				);
+		// Variables locales
+		String[] options = {
+			"Matrix addition.",
+			"Matrix substraction.",
+		  "Matrix multiplication.",
+		  "Matrix determinat.",
+		  "Solve linear system of ecuations."
+	 	};
+
+		int op = 0;
+		String exitOption = "";
+
+		// Ejecución indefinida
+		do {
+			// Ofrece opciones al usuario
+			System.out.println("== Choose an option ==\n");
+			for (int i = 0; i < options.length; i++) {
+				System.out.println("[" + (i+1) + "] " + options[i]);
 			}
-		}
-		io.println("\n== Input matrix ==\n");
-		printM(matrix, size, size);
-		io.println("\n== Determinat ==\n");
-		io.println(""+mtrx.getDeterminat(matrix, size));
+			System.out.println("");
+			// Lee opcion del usuario
+			op = io.getInt(
+				"Type your option: ",
+				"Not an option, try again: ",
+				1, options.length
+			);
+			System.out.println("");
+			// Ejecuta la opción deseada
+			switch(op){
+				case 1:
+					add();
+					break;
+				case 2:
+					substract();
+					break;
+				case 3:
+					multiply();
+					break;
+				case 4:
+					determinant();
+					break;
+				case 5:
+					linearSystem();
+					break;
+				default:
+					System.out.println("\nError? :(");
+			}
+			// Condicion para seguir ejecutando
+			System.out.print("\nPress [x] to exit. ");
+			exitOption = sc.nextLine();
+			io.separator();
+		} while ( !(exitOption.equals("x") || exitOption.equals("X")) );
 	}
-	private static void printM(double[][] array, int cols, int rows){
-		for(int i = 0; i < cols; i++){
-			for(int j = 0; j < rows; j++) {
-				io.print(array[i][j] + "\t");
-				if(j == rows-1)
-					io.println();
-			}
-		}
+	private static void add(){
+		System.out.println("\nNot finished yet.");
+	}
+	private static void substract(){
+		System.out.println("\nNot finished yet.");
+	}
+	private static void multiply(){
+		System.out.println("\nNot finished yet.");
+	}
+	private static void determinant(){
+		// Inicializa matriz
+		double[][] matrix = mtrx.getMatrix();
+		// Imprime matriz
+		System.out.println("\n== Input matrix ==\n");
+		mtrx.printM(matrix);
+		// Imprime resultado
+		System.out.println("\n== Solution ==\n");
+		System.out.println(mtrx.getDeterminat(matrix));
+	}
+	private static void linearSystem(){
+		// Inicializa ecuaciones
+		double[][] ecuations = mtrx.getEcuations();
+		// Imprime ecuaciones
+		System.out.println("\n== Input ecuations ==\n");
+		mtrx.printM(ecuations);
+		// Imprime incognitas
+		System.out.println("\n== Unknown values ==\n");
+		mtrx.printA(mtrx.solveSystem(ecuations));
 	}
 }

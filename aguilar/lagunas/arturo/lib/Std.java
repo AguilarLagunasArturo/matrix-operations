@@ -2,18 +2,6 @@ package lib;
 import java.util.Scanner;
 public class Std{
 	Scanner sc = new Scanner(System.in);
-	// Funciones de salida
-	public void print(String... m){
-		for(int i = 0; i <  m.length; i++){
-			System.out.print(m[i]);
-		}
-	}
-	public void println(String... m){
-		for(int i = 0; i <  m.length; i++){
-			System.out.print(m[i]);
-		}
-		System.out.print("\n");
-	}
 	// Funciones de entrada
 	public int getInt(String m, String e, int... range){
 		int value = 0;
@@ -84,7 +72,10 @@ public class Std{
 		}
 		return value;
 	}
-
+	// Funciones de salida
+	public void separator(){
+		System.out.println("\n-----------------------------------");
+	}
 	// Funciones de ordenamiento
 	public int[] orderDouble(int[] list, boolean maxMin){
 		int size = list.length;
