@@ -12,9 +12,9 @@ class Main{
 		String[] options = {
 			"Matrix addition.",
 			"Matrix substraction.",
-		  "Matrix multiplication.",
-		  "Matrix determinat.",
-		  "Solve linear system of ecuations."
+			"Matrix multiplication.",
+			"Matrix determinat.",
+			"Solve linear system of ecuations."
 	 	};
 
 		int op = 0;
