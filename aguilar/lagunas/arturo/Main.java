@@ -20,6 +20,8 @@ class Main{
 		int op = 0;
 		String exitOption = "";
 
+		io.separator();
+
 		// Ejecución indefinida
 		do {
 			// Ofrece opciones al usuario
@@ -34,7 +36,7 @@ class Main{
 				"Not an option, try again: ",
 				1, options.length
 			);
-			System.out.println("");
+			io.separator();
 			// Ejecuta la opción deseada
 			switch(op){
 				case 1:
@@ -62,13 +64,13 @@ class Main{
 		} while ( !(exitOption.equals("x") || exitOption.equals("X")) );
 	}
 	private static void add(){
-		System.out.println("\nNot finished yet.");
+		System.out.println("Not finished yet.");
 	}
 	private static void substract(){
-		System.out.println("\nNot finished yet.");
+		System.out.println("Not finished yet.");
 	}
 	private static void multiply(){
-		System.out.println("\nNot finished yet.");
+		System.out.println("Not finished yet.");
 	}
 	private static void determinant(){
 		// Inicializa matriz

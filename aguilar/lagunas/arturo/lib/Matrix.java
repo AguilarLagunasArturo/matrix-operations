@@ -84,7 +84,9 @@ public class Matrix{
 		);
 		System.out.println("");
 		double[][] ecuations = new double[size][size+1];
+		System.out.println("Ecuation in form:\tAx + By ... + Zn = R");
 		for(int i = 0; i < size; i++){
+			System.out.println("\nEcuation number " + (i+1) + ".");
 			for(int j = 0; j < size+1; j++){
 				ecuations[i][j] = io.getDouble(
 					"Value at [" + (i+1) + "][" + (j+1) + "]: ",

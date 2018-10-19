@@ -74,7 +74,7 @@ public class Std{
 	}
 	// Funciones de salida
 	public void separator(){
-		System.out.println("\n-----------------------------------");
+		System.out.println("\n-----------------------------------\n");
 	}
 	// Funciones de ordenamiento
 	public int[] orderDouble(int[] list, boolean maxMin){
