@@ -31,22 +31,22 @@ public class Matrix{
 		}
 		return det;
 	}
-	public double[] solveSystem(double[][] ecuations){
-		int size = ecuations.length;
+	public double[] solveSystem(double[][] equations){
+		int size = equations.length;
 		double[][] dXmatrix = new double[size][size];
 		double[] unknowns = new double[size];
 		double dX = 0;
 		double dM = 0;
 		// Calcula dM
-		dM = getDeterminat(ecuations);
+		dM = getDeterminat(equations);
 		if (dM == 0) return unknowns;
 		for (int i = 0; i < size; i++){ // dXmatrix
 			for (int j = 0; j < size; j++){ // Rows
 				for (int k = 0; k < size; k++) { // Cols
 					if (i == k)
-						dXmatrix[j][k] = ecuations[j][size];
+						dXmatrix[j][k] = equations[j][size];
 					else
-						dXmatrix[j][k] = ecuations[j][k];
+						dXmatrix[j][k] = equations[j][k];
 				}
 			}
 			dX = getDeterminat(dXmatrix);
@@ -76,26 +76,26 @@ public class Matrix{
 		}
 		return matrix;
 	}
-	public double[][] getEcuations(){
+	public double[][] getEquations(){
 		int size = io.getInt(
-			"Number of ecuations: ",
+			"Number of equations: ",
 			"Invalid, try again: ",
 			2, Integer.MAX_VALUE
 		);
 		System.out.println("");
-		double[][] ecuations = new double[size][size+1];
-		System.out.println("Ecuation in form:\tAx + By ... + Zn = R");
+		double[][] equations = new double[size][size+1];
+		System.out.println("Equation in form:\tAx + By ... + Zn = R");
 		for(int i = 0; i < size; i++){
-			System.out.println("\nEcuation number " + (i+1) + ".");
+			System.out.println("\nEquation number " + (i+1) + ".");
 			for(int j = 0; j < size+1; j++){
-				ecuations[i][j] = io.getDouble(
+				equations[i][j] = io.getDouble(
 					"Value at [" + (i+1) + "][" + (j+1) + "]: ",
 					"Invalid, try again: ",
 					-Double.MAX_VALUE, Double.MAX_VALUE
 				);
 			}
 		}
-		return ecuations;
+		return equations;
 	}
 	// Funciones de salida
 	public void printM(double[][] matrix){

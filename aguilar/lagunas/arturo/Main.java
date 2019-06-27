@@ -14,7 +14,7 @@ class Main{
 			"Matrix substraction.",
 			"Matrix multiplication.",
 			"Matrix determinat.",
-			"Solve linear system of ecuations."
+			"Solve linear system of equations."
 	 	};
 
 		int op = 0;
@@ -84,16 +84,16 @@ class Main{
 	}
 	private static void linearSystem(){
 		// Inicializa ecuaciones
-		double[][] ecuations = mtrx.getEcuations();
+		double[][] equations = mtrx.getEquations();
 		// Imprime ecuaciones
-		System.out.println("\n== Input ecuations ==\n");
-		mtrx.printM(ecuations);
+		System.out.println("\n== Input equations ==\n");
+		mtrx.printM(equations);
 		// Imprime incognitas
 		System.out.println("\n== Unknown values ==\n");
-		if (mtrx.getDeterminat(ecuations) == 0) {
+		if (mtrx.getDeterminat(equations) == 0) {
 			System.out.println("This system has infinitely many solutions.");
 		}else {
-			mtrx.printA(mtrx.solveSystem(ecuations));
+			mtrx.printA(mtrx.solveSystem(equations));
 		}
 	}
 }
